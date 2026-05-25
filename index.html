@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RJOTTA3D - IMPRESSÕES 3D</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ========================================= */
+/* RESET */
+/* ========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#030303;
+    color:white;
+    font-family:'Orbitron', sans-serif;
+    overflow-x:hidden;
+}
+
+/* ========================================= */
+/* FUNDO ELETRÔNICO */
+/* ========================================= */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    top:0;
+    left:0;
+    z-index:-1;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at center,#006eff22 0%,transparent 40%),
+    linear-gradient(180deg,#020202,#07101f,#020202);
+}
+
+.bg span{
+    position:absolute;
+    width:2px;
+    height:120px;
+    background:linear-gradient(transparent,#00a2ff);
+
+    animation:lines 8s linear infinite;
+
+    opacity:0.4;
+}
+
+.bg span:nth-child(1){left:10%;animation-delay:0s;}
+.bg span:nth-child(2){left:20%;animation-delay:2s;}
+.bg span:nth-child(3){left:30%;animation-delay:1s;}
+.bg span:nth-child(4){left:40%;animation-delay:3s;}
+.bg span:nth-child(5){left:50%;animation-delay:4s;}
+.bg span:nth-child(6){left:60%;animation-delay:2s;}
+.bg span:nth-child(7){left:70%;animation-delay:5s;}
+.bg span:nth-child(8){left:80%;animation-delay:1s;}
+.bg span:nth-child(9){left:90%;animation-delay:4s;}
+
+@keyframes lines{
+
+    0%{
+        transform:translateY(-150px);
+    }
+
+    100%{
+        transform:translateY(120vh);
+    }
+
+}
+
+/* ========================================= */
+/* HEADER */
+/* ========================================= */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+
+    padding:20px 8%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+
+    border-bottom:1px solid rgba(255,255,255,0.08);
+
+    z-index:999;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.logo img{
+    width:70px;
+
+    animation:logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+.logo h1{
+    font-size:30px;
+
+    background:linear-gradient(90deg,#00a2ff,#ffffff);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav{
+    display:flex;
+    gap:40px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    transition:0.4s;
+    font-size:14px;
+    position:relative;
+}
+
+nav a:hover{
+    color:#00a2ff;
+}
+
+nav a::after{
+    content:'';
+    width:0%;
+    height:2px;
+
+    background:#00a2ff;
+
+    position:absolute;
+    left:0;
+    bottom:-8px;
+
+    transition:0.4s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* ========================================= */
+/* HERO */
+/* ========================================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 8%;
+    padding-top:120px;
+}
+
+.hero-text{
+    max-width:650px;
+}
+
+.hero-text h2{
+    font-size:75px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.hero-text span{
+    color:#00a2ff;
+}
+
+.hero-text p{
+    color:#c5c5c5;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.btn{
+    padding:18px 45px;
+
+    border:none;
+    border-radius:15px;
+
+    background:linear-gradient(90deg,#00a2ff,#0044ff);
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.4s;
+
+    box-shadow:0 0 30px #008cff55;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+
+    box-shadow:0 0 50px #008cff;
+}
+
+/* ========================================= */
+/* IMAGEM PRINCIPAL */
+/* ========================================= */
+
+.hero-image{
+    width:500px;
+
+    animation:float 5s ease-in-out infinite;
+}
+
+.hero-image img{
+    width:100%;
+
+    filter:drop-shadow(0 0 40px #008cff);
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* ========================================= */
+/* CATEGORIAS */
+/* ========================================= */
+
+.categories{
+    padding:120px 8%;
+}
+
+.title{
+    text-align:center;
+
+    font-size:45px;
+
+    margin-bottom:70px;
+}
+
+.title span{
+    color:#00a2ff;
+}
+
+.cards{
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:40px;
+}
+
+.card{
+    background:rgba(15,15,15,0.85);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:0.5s;
+
+    backdrop-filter:blur(10px);
+}
+
+.card:hover{
+    transform:translateY(-15px);
+
+    border:1px solid #00a2ff;
+
+    box-shadow:0 0 35px #008cff33;
+}
+
+.card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:30px;
+}
+
+.card-content h3{
+    margin-bottom:15px;
+}
+
+.card-content p{
+    color:#bdbdbd;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+/* ========================================= */
+/* FOOTER */
+/* ========================================= */
+
+footer{
+    padding:40px;
+
+    text-align:center;
+
+    background:#000;
+
+    border-top:1px solid rgba(255,255,255,0.08);
+
+    color:#888;
+}
+
+/* ========================================= */
+/* RESPONSIVO */
+/* ========================================= */
+
+@media(max-width:900px){
+
+    header{
+        padding:20px;
+    }
+
+    nav{
+        gap:15px;
+    }
+
+    nav a{
+        font-size:11px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding-top:140px;
+    }
+
+    .hero-text h2{
+        font-size:42px;
+    }
+
+    .hero-image{
+        width:90%;
+        margin-top:50px;
+    }
+
+    .logo img{
+        width:55px;
+    }
+
+    .logo h1{
+        font-size:22px;
+    }
+
+    .title{
+        font-size:34px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ========================================= -->
+<!-- FUNDO -->
+<!-- ========================================= -->
+
+<div class="bg">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+<!-- ========================================= -->
+<!-- HEADER -->
+<!-- ========================================= -->
+
+<header>
+
+<div class="logo">
+
+<!-- ========================================= -->
+<!-- COLOQUE SUA LOGO AQUI -->
+<!-- ========================================= -->
+
+<img src="imagens/logo.jpg.jpeg.png" alt="Logo">
+
+<h1>JOTTA3D</h1>
+
+</div>
+
+<!-- ========================================= -->
+<!-- MENU INTERLIGADO -->
+<!-- ========================================= -->
+
+<nav>
+
+<a href="#inicio">INÍCIO</a>
+
+<a href="chaveiros.html">CHAVEIROS</a>
+
+<a href="namorados.html">NAMORADOS</a>
+
+<a href="#contato">CONTATO</a>
+
+</nav>
+
+</header>
+
+<!-- ========================================= -->
+<!-- HERO -->
+<!-- ========================================= -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-text">
+
+<h2>
+
+IMPRESSÕES 3D
+<span>PREMIUM</span>
+
+</h2>
+
+<p>
+
+Projetos exclusivos em impressão 3D com acabamento premium,
+design futurista e produtos personalizados de alta qualidade.
+
+</p>
+
+<a href="chaveiros.html">
+
+<button class="btn">
+
+VER PRODUTOS
+
+</button>
+
+</a>
+
+</div>
+
+<div class="hero-image">
+
+<!-- ========================================= -->
+<!-- IMAGEM PRINCIPAL -->
+<!-- ========================================= -->
+
+<img src="imagens/logo.jpg.jpeg.png" alt="Logo Principal">
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- CATEGORIAS -->
+<!-- ========================================= -->
+
+<section class="categories">
+
+<h2 class="title">
+
+ESCOLHA SUA <span>CATEGORIA</span>
+
+</h2>
+
+<div class="cards">
+
+<!-- ========================================= -->
+<!-- CHAVEIROS -->
+<!-- ========================================= -->
+
+<div class="card">
+
+<img src="imagens/capa.jpg.jpeg.jpg">
+
+<div class="card-content">
+
+<h3>
+CHAVEIROS 3D
+</h3>
+
+<p>
+
+Coleção premium de chaveiros personalizados em impressão 3D.
+
+</p>
+
+<a href="chaveiros.html">
+
+<button class="btn">
+
+ENTRAR
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- ========================================= -->
+<!-- NAMORADOS -->
+<!-- ========================================= -->
+
+<div class="card">
+
+<img src="imagens/capa2.jpg.jpeg.jpg">
+
+<div class="card-content">
+
+<h3>
+DIA DOS NAMORADOS
+</h3>
+
+<p>
+
+Presentes personalizados e românticos em impressão 3D.
+
+</p>
+
+<a href="namorados.html">
+
+<button class="btn">
+
+ENTRAR
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- CONTATO -->
+<!-- ========================================= -->
+
+<section id="contato" style="padding:120px 8%; text-align:center;">
+
+<h2 class="title">
+
+ENTRE EM <span>CONTATO</span>
+
+</h2>
+
+<p style="margin-bottom:20px; color:#bdbdbd;">
+
+WhatsApp: (00) 00000-0000
+
+</p>
+
+<p style="margin-bottom:35px; color:#bdbdbd;">
+
+Instagram: @jotta3d
+
+</p>
+
+<button class="btn">
+
+FAZER ORÇAMENTO
+
+</button>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer>
+
+© 2026 JOTTA3D - TODOS OS DIREITOS RESERVADOS
+
+</footer>
+
+</body>
+
+</html>

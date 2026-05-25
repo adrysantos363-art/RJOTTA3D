@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dia dos Namorados - JOTTA3D</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#030303;
+    color:white;
+    font-family:'Orbitron', sans-serif;
+    overflow-x:hidden;
+}
+
+/* FUNDO */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    z-index:-1;
+
+    background:
+    radial-gradient(circle at center,#ff006622 0%,transparent 40%),
+    linear-gradient(180deg,#020202,#13050d,#020202);
+}
+
+/* HEADER */
+
+header{
+    width:100%;
+    padding:20px 8%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:fixed;
+
+    background:rgba(0,0,0,0.6);
+
+    backdrop-filter:blur(10px);
+
+    border-bottom:1px solid rgba(255,255,255,0.08);
+
+    z-index:999;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.logo h1{
+    font-size:28px;
+
+    background:linear-gradient(90deg,#ff4da6,#ffffff);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    transition:0.4s;
+}
+
+nav a:hover{
+    color:#ff4da6;
+}
+
+/* HERO */
+
+.hero{
+    min-height:60vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:150px 8% 80px;
+}
+
+.hero h2{
+    font-size:70px;
+    margin-bottom:25px;
+}
+
+.hero span{
+    color:#ff4da6;
+}
+
+.hero p{
+    color:#bdbdbd;
+    max-width:700px;
+    line-height:1.8;
+}
+
+/* PRODUTOS */
+
+.products{
+    padding:40px 8% 120px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:40px;
+}
+
+.card{
+    background:rgba(15,15,15,0.9);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:0.5s;
+}
+
+.card:hover{
+    transform:translateY(-15px);
+
+    border:1px solid #ff4da6;
+
+    box-shadow:0 0 40px #ff4da644;
+}
+
+.card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:30px;
+}
+
+.card-content h3{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.card-content p{
+    color:#bdbdbd;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.price{
+    color:#ff4da6;
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+.btn{
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:linear-gradient(90deg,#ff4da6,#ff0066);
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:scale(1.03);
+
+    box-shadow:0 0 30px #ff4da677;
+}
+
+footer{
+    padding:40px;
+    text-align:center;
+    background:#000;
+    color:#777;
+}
+
+@media(max-width:900px){
+
+    header{
+        padding:20px;
+    }
+
+    nav{
+        gap:15px;
+    }
+
+    nav a{
+        font-size:11px;
+    }
+
+    .hero h2{
+        font-size:42px;
+    }
+
+    .logo img{
+        width:50px;
+    }
+
+    .logo h1{
+        font-size:22px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<header>
+
+<div class="logo">
+
+<img src="logo.png">
+
+<h1>JOTTA3D</h1>
+
+</div>
+
+<nav>
+
+<a href="index.html">INÍCIO</a>
+
+<a href="chaveiros.html">CHAVEIROS</a>
+
+<a href="namorados.html">NAMORADOS</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h2>
+DIA DOS <span>NAMORADOS</span>
+</h2>
+
+<p>
+Presentes personalizados em impressão 3D para surpreender
+quem você ama com algo único e especial.
+</p>
+
+</section>
+
+<section class="products">
+
+<div class="card">
+
+<img src="casal1.jpg">
+
+<div class="card-content">
+
+<h3>Coração Personalizado</h3>
+
+<p>
+Presente romântico premium feito em impressão 3D.
+</p>
+
+<div class="price">
+R$ 79,90
+</div>
+
+<button class="btn">
+COMPRAR
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="casal2.jpg">
+
+<div class="card-content">
+
+<h3>Miniatura de Casal</h3>
+
+<p>
+Miniatura personalizada exclusiva para casais.
+</p>
+
+<div class="price">
+R$ 129,90
+</div>
+
+<button class="btn">
+COMPRAR
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="rosa.jpg">
+
+<div class="card-content">
+
+<h3>Rosa Eterna 3D</h3>
+
+<p>
+Rosa decorativa personalizada para presente romântico.
+</p>
+
+<div class="price">
+R$ 99,90
+</div>
+
+<button class="btn">
+COMPRAR
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 JOTTA3D - TODOS OS DIREITOS RESERVADOS
+
+</footer>
+
+</body>
+
+</html>
