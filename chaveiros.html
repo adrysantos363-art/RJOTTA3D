@@ -13,6 +13,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+    .price-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.old-price{
+    color:#777;
+    text-decoration:line-through;
+    font-size:20px;
+}
+
+.new-price{
+    color:#00a2ff;
+    font-size:34px;
+    font-weight:bold;
+}
 
 *{
     margin:0;
@@ -25,6 +43,19 @@ body{
     color:white;
     font-family:'Orbitron', sans-serif;
     overflow-x:hidden;
+}
+select{
+    width:100%;
+    padding:15px;
+    margin:15px 0 25px;
+
+    background:#111;
+    color:white;
+
+    border:1px solid #333;
+    border-radius:12px;
+
+    font-size:16px;
 }
 
 /* FUNDO */
@@ -247,25 +278,70 @@ footer{
     }
 
 }
+.cor-title{
+    display:block;
+    margin-bottom:12px;
+    color:#bdbdbd;
+}
 
-    .price-area{
+.cores{
     display:flex;
-    align-items:center;
-    gap:15px;
+    gap:12px;
+    flex-wrap:wrap;
     margin-bottom:25px;
 }
 
-.old-price{
-    color:#777;
-    text-decoration:line-through;
-    font-size:20px;
+.cor{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    cursor:pointer;
+    transition:.3s;
+    border:2px solid transparent;
 }
 
-.new-price{
-    color:#00a2ff;
-    font-size:34px;
-    font-weight:bold;
+.cor:hover{
+    transform:scale(1.15);
 }
+
+.cor.ativa{
+    border:3px solid white;
+    box-shadow:0 0 15px #00a2ff;
+}
+
+.preto{
+    background:#000;
+}
+
+.branco{
+    background:#fff;
+}
+
+.azul{
+    background:#0077ff;
+}
+
+.vermelho{
+    background:#ff0000;
+}
+
+.verde{
+    background:#00c853;
+}
+
+.Marrom{
+    background:#b27123;
+}
+
+.Amarelo{
+    background:#d3e80f;
+}
+
+
+
+
+
+
 
 </style>
 
@@ -279,7 +355,7 @@ footer{
 
 <div class="logo">
 
-<img src="logo.jpg.jpeg.png">
+<img src="imagens/logo.jpg.jpeg.png">
 
 <h1>JOTTA3D</h1>
 
@@ -314,39 +390,80 @@ com acabamento profissional e design futurista.
 
 <div class="card">
 
-<img src="pacman.jpg.jpeg.jpeg">
+<img src="imagens/pacman.jpg.jpeg.jpeg">
 
 <div class="card-content">
 
-<h3>Pacman Keychain</h3>
-
-<p>
-Chaveiro premium gamer com acabamento profissional.
-</p>
-
-<div class="price-area">
-
-<span class="old-price">
-R$ 34,90
-</span>
-
-<span class="new-price">
-R$ 14,99
-</span>
-
-</div>
-
-<button class="btn">
-ENCOMENDAR ✅
-</button>
-
-</div>
-
-</div>
-
 <div class="card">
 
-<img src="camaleao.jpg.jpeg.jpeg">
+    
+
+    <div class="card-content">
+
+        <div class="card">
+
+    <div class="card-content">
+
+        <h3>Pacman Keychain</h3>
+
+        <p>Chaveiro premium impresso em 3D.</p>
+
+        <div class="price-area">
+            <span class="old-price">R$ 39,90</span>
+            <span class="new-price">R$ 14,99</span>
+        </div>
+
+        <label class="cor-title">
+            Escolha a cor:
+        </label>
+
+        <div class="cores">
+
+            <div class="cor preto"
+                 onclick="selecionarCor(this,'Preto')">
+            </div>
+
+            <div class="cor branco"
+                 onclick="selecionarCor(this,'Branco')">
+            </div>
+
+            <div class="cor azul"
+                 onclick="selecionarCor(this,'Azul')">
+            </div>
+
+            <div class="cor vermelho"
+                 onclick="selecionarCor(this,'Vermelho')">
+            </div>
+
+            <div class="cor verde"
+                 onclick="selecionarCor(this,'Verde')">
+            </div>
+
+             <div class="cor Marrom"
+                 onclick="selecionarCor(this,'Marrom')">
+            </div>
+
+             <div class="cor Amarelo"
+                 onclick="selecionarCor(this,'Amarelo')">
+            </div>
+
+
+
+        </div>
+
+        <button class="btn"
+        onclick="encomendarProduto('Pacman Keychain')">
+
+            ENCOMENDAR
+
+        </button>
+
+    </div>
+
+</div>
+<div class="card">
+
+<img src="imagens/camaleao.jpg.jpeg.jpeg">
 
 <div class="card-content">
 
@@ -356,29 +473,63 @@ ENCOMENDAR ✅
 Modelo personalizado inspirado no universo gamer.
 </p>
 
-<div class="price-area">
+ <div class="price-area">
+            <span class="old-price">R$ 34,99</span>
+            <span class="new-price">R$ 14,99</span>
+        </div>
 
-<span class="old-price">
-R$ 34,90
-</span>
+        <label class="cor-title">
+            Escolha a cor:
+        </label>
 
-<span class="new-price">
-R$ 14,99
-</span>
+        <div class="cores">
 
-</div>
+            <div class="cor preto"
+                 onclick="selecionarCor(this,'Preto')">
+            </div>
 
-<button class="btn">
-ENCOMENDAR ✅
-</button>
+            <div class="cor branco"
+                 onclick="selecionarCor(this,'Branco')">
+            </div>
 
-</div>
+            <div class="cor azul"
+                 onclick="selecionarCor(this,'Azul')">
+            </div>
+
+            <div class="cor vermelho"
+                 onclick="selecionarCor(this,'Vermelho')">
+            </div>
+
+            <div class="cor verde"
+                 onclick="selecionarCor(this,'Verde')">
+            </div>
+
+             <div class="cor Marrom"
+                 onclick="selecionarCor(this,'Marrom')">
+            </div>
+
+             <div class="cor Amarelo"
+                 onclick="selecionarCor(this,'Amarelo')">
+            </div>
+
+
+
+        </div>
+
+        <button class="btn"
+        onclick="encomendarProduto('Camaleão')">
+
+            ENCOMENDAR
+
+        </button>
+
+    </div>
 
 </div>
 
 <div class="card">
 
-<img src="polvo.jpg.jpeg.jpeg">
+<img src="imagens/polvo.jpg.jpeg.jpeg">
 
 <div class="card-content">
 
@@ -388,26 +539,59 @@ ENCOMENDAR ✅
 Chaveiro colecionável em impressão 3D premium.
 </p>
 
-<div class="price-area">
+ <div class="price-area">
+            <span class="old-price">R$ 14,99</span>
+            <span class="new-price">R$ 6,99</span>
+        </div>
 
-<span class="old-price">
-R$ 15,90
-</span>
+        <label class="cor-title">
+            Escolha a cor:
+        </label>
 
-<span class="new-price">
-R$ 6,99
-</span>
+        <div class="cores">
+
+            <div class="cor preto"
+                 onclick="selecionarCor(this,'Preto')">
+            </div>
+
+            <div class="cor branco"
+                 onclick="selecionarCor(this,'Branco')">
+            </div>
+
+            <div class="cor azul"
+                 onclick="selecionarCor(this,'Azul')">
+            </div>
+
+            <div class="cor vermelho"
+                 onclick="selecionarCor(this,'Vermelho')">
+            </div>
+
+            <div class="cor verde"
+                 onclick="selecionarCor(this,'Verde')">
+            </div>
+
+             <div class="cor Marrom"
+                 onclick="selecionarCor(this,'Marrom')">
+            </div>
+
+             <div class="cor Amarelo"
+                 onclick="selecionarCor(this,'Amarelo')">
+            </div>
+
+
+
+        </div>
+
+        <button class="btn"
+        onclick="encomendarProduto('polvo')">
+
+            ENCOMENDAR
+
+        </button>
+
+    </div>
 
 </div>
-
-<button class="btn">
-ENCOMENDAR ✅
-</button>
-
-</div>
-
-</div>
-
 </section>
 
 <footer>
@@ -415,6 +599,40 @@ ENCOMENDAR ✅
 © 2026 JOTTA3D - TODOS OS DIREITOS RESERVADOS
 
 </footer>
+
+<script>
+
+let corSelecionada = "Preto";
+
+function selecionarCor(elemento, cor){
+
+    document
+    .querySelectorAll(".cor")
+    .forEach(c => c.classList.remove("ativa"));
+
+    elemento.classList.add("ativa");
+
+    corSelecionada = cor;
+}
+
+function encomendarProduto(produto){
+
+    let mensagem =
+`Olá, gostaria de fazer uma encomenda.
+
+Produto: ${produto}
+
+Cor escolhida: ${corSelecionada}`;
+
+    let numero = "5521982982998";
+
+    let link =
+`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(link,"_blank");
+}
+
+</script>
 
 </body>
 
